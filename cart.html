@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Корзина</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="mobile.css" media="screen and (max-width: 768px)">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <style>
+        /* Стили для страницы корзины */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            width: 80%;
+            margin: auto;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        .cart-items {
+            display: flex;
+            flex-direction: column;
+            margin-top: 20px;
+        }
+
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #fff;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .cart-item img {
+            width: 100px;
+            height: auto;
+        }
+
+        .cart-item-info {
+            flex: 1;
+            margin-left: 20px;
+        }
+
+        .cart-item-info p {
+            margin: 5px 0;
+        }
+
+        .cart-item-actions button {
+            padding: 5px 10px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .cart-item-actions button:hover {
+            background-color: #0056b3;
+        }
+
+        .total-price {
+            display: flex;
+            justify-content: space-between;
+            background-color: #fff;
+            padding: 15px;
+            margin-top: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .checkout-btn {
+            padding: 10px 20px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            text-align: center;
+        }
+
+        .checkout-btn:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="logo">Флеш-М</div>
+        <input type="text" placeholder="Поиск..." class="search-bar">
+        <div class="cart" onclick="goToCartPage()">🛒 Корзина</div>
+        <div class="user" onclick="window.location.href='vhod.html'">👤 Войти</div>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">Главная</a></li>
+            <li><a href="computer.html">Компьютеры</a></li>
+            <li><a href="noytbyk.html">Ноутбуки</a></li>
+            <!-- <li><a href="play_furniture.html">Игровая мебель</a></li> -->
+        </ul>
+    </nav>
+
+    <div class="container">
+
+        <h1>Корзина</h1>
+
+        <!-- Список товаров в корзине -->
+        <div class="cart-items" id="cartItems">
+            <!-- Товары будут добавляться через JavaScript -->
+        </div>
+
+        <!-- Итоговая сумма -->
+        <div class="total-price">
+            <p><strong>Итого:</strong></p>
+            <p id="totalPrice">0 руб.</p>
+        </div>
+
+        <!-- Кнопка оформления заказа -->
+        <div style="text-align: center; margin-top: 20px;">
+            <button class="checkout-btn">Перейти к оформлению</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>

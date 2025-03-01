@@ -1,0 +1,237 @@
+/* Общие стили для страницы товара */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #444;
+    color: white;
+    padding: 10px;
+    text-align: center;
+}
+
+/* Контейнер для товара */
+.tovar-page {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    margin-top: 20px;
+}
+
+/* Блок товара */
+.tovar {
+    display: flex;
+    flex-wrap: wrap; /* Адаптивность для узких экранов */
+    align-items: flex-start;
+    justify-content: space-between;
+    max-width: 1100px;
+    width: 100%;
+    padding: 20px;
+    background-color: white;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    gap: 20px; /* Отступ между изображением и текстом */
+}
+
+/* Стили для изображения */
+.tovar-image {
+    flex: 1; /* Занимает доступное пространство */
+    max-width: 60%; /* Ограниечение ширины */
+}
+
+.tovar-image img {
+    width: 100%;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+/* Стили для деталей товара */
+.product-details {
+    flex: 1;
+    max-width: 60%;
+}
+
+.product-details h2 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.product-details ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.product-details li {
+    font-size: 18px;
+    color: #444;
+    margin-bottom: 10px;
+}
+
+.product-details li strong {
+    font-weight: bold;
+}
+
+.product-details p {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+    margin-top: 20px;
+}
+
+/* Кнопка */
+.product-details button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    margin-top: 15px;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.product-details button:hover {
+    background-color: #0056b3;
+}
+
+/* Стили футера */
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    width: 100%;
+    margin-top: 20px;
+}
+
+/* Описание товара */
+.product-description {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: white;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+}
+
+.product-description h2 {
+    font-size: 22px;
+    color: #333;
+    margin-bottom: 15px;
+    border-bottom: 2px solid #007bff;
+    padding-bottom: 5px;
+}
+
+.product-description p {
+    font-size: 16px;
+    color: #444;
+    line-height: 1.6;
+    text-align: justify;
+}
+
+.reviews {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 20px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.reviews h2, .reviews h3 {
+    text-align: center;
+}
+
+#reviews-list {
+    margin-bottom: 20px;
+}
+
+.review {
+    border-bottom: 1px solid #ddd;
+    padding: 10px 0;
+}
+
+.review:last-child {
+    border-bottom: none;
+}
+
+.review strong {
+    color: #333;
+}
+
+#review-form {
+    display: flex;
+    flex-direction: column;
+}
+
+#review-form input,
+#review-form textarea {
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+#review-form button {
+    background: #28a745;
+    color: white;
+    border: none;
+    padding: 10px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+#review-form button:hover {
+    background: #218838;
+}
+
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .container {
+        width: 95%;
+        padding: 10px;
+    }
+
+    .cart-item {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 10px;
+    }
+
+    .cart-item img {
+        width: 80px;
+        margin-bottom: 10px;
+    }
+
+    .cart-item-info {
+        margin-left: 0;
+    }
+
+    .cart-item-actions {
+        margin-top: 10px;
+    }
+
+    .cart-item-actions button {
+        padding: 8px;
+        font-size: 14px;
+    }
+
+    .total-price {
+        flex-direction: column;
+        text-align: center;
+        padding: 10px;
+    }
+
+    .checkout-btn {
+        width: 100%;
+        padding: 12px;
+        font-size: 16px;
+    }
+}

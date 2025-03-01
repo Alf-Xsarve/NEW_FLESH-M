@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Товар - Laptop X Pro</title>
+    <link rel="stylesheet" href="tovar.css">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="mobile.css" media="screen and (max-width: 768px)">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+</head>
+
+<body>
+    <header>
+        <div class="logo">Флеш-М</div>
+        <input type="text" placeholder="Поиск..." class="search-bar">
+        <div class="cart" onclick="goToCartPage()">🛒 Корзина</div>
+        <div class="user" onclick="window.location.href='vhod.html'">👤 Войти</div>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">Главная</a></li>
+            <li><a href="computer.html">Компьютеры</a></li>
+            <li><a href="noytbyk.html">Ноутбуки</a></li>
+        </ul>
+    </nav>
+
+    <div class="tovar-page">
+        <div class="tovar">
+            <div class="tovar-image">
+                <img id="product-image" src="" alt="Товар">
+            </div>
+            <div class="tovar-details">
+                <h2 id="product-name"></h2>
+                <ul>
+                    <li><strong>Процессор:</strong> <span id="product-cpu"></span></li>
+                    <li><strong>Оперативная память:</strong> <span id="product-ram"></span></li>
+                    <li><strong>Тип хранилища:</strong> <span id="product-storage"></span></li>
+                    <li><strong>Экран:</strong> <span id="product-screen"></span></li>
+                </ul>
+                <p><strong>Цена:</strong> <span id="product-price"></span> сом.</p>
+                <button id="addToCartBtn">🛒 Добавить в корзину</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="product-description">
+        <h2>Описание товара</h2>
+        <p><strong></strong> <span id="description"></span></p>
+    </div>
+
+    <section class="reviews">
+
+        <h3>Оставить отзыв</h3>
+        <form id="review-form">
+            <input type="text" id="review-name" placeholder="Ваше имя" required>
+            <textarea id="review-text" placeholder="Ваш отзыв" required></textarea>
+            <button type="submit">Отправить</button>
+        </form>
+
+        <h2>Отзывы</h2>
+        <div id="reviews-list">
+            <p>Отзывов пока нет. Будьте первым!</p>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Контакты</h3>
+                <p>Телефон: +7 (999) 123-45-67</p>
+                <p>Email: info@flesh-m.com</p>
+            </div>
+            <div class="footer-section">
+                <h3>Соцсети</h3>
+                <a href="#">Instagram</a>
+                <a href="#">Facebook</a>
+                <a href="#">Telegram</a>
+            </div>
+            <div class="footer-section">
+                <h3>Адрес</h3>
+                <p>г. Бишкек, ул. Токтогула, 45</p>
+            </div>
+        </div>
+        <p>&copy; 2025 Флеш-М. Все права защищены.</p>
+    </footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // Создаем объект для работы с параметрами URL
+            const params = new URLSearchParams(window.location.search);
+
+            // Заполняем данные о товаре
+            document.getElementById("product-name").textContent = params.get("name");
+            document.getElementById("product-cpu").textContent = params.get("cpu");
+            document.getElementById("product-ram").textContent = params.get("ram");
+            document.getElementById("product-storage").textContent = params.get("storage");
+            document.getElementById("product-screen").textContent = params.get("screen");
+            document.getElementById("product-price").textContent = params.get("price");
+            document.getElementById("product-image").src = params.get("image");
+
+            // Получаем и отображаем описание
+            const description = params.get('description'); // Используем params, а не urlParams
+            if (description) {
+                document.getElementById('description').textContent = description;
+            } else {
+                console.error('Описание не найдено в URL.');
+            }
+
+            document.getElementById("addToCartBtn").addEventListener("click", function () {
+                addToCart(
+                    params.get("name"),
+                    params.get("cpu"),
+                    params.get("ram"),
+                    params.get("gpu"),
+                    parseInt(params.get("price"), 10),
+                    params.get("image")
+                );
+            });
+        });
+
+        document.addEventListener("DOMContentLoaded", function () {
+            const reviewForm = document.getElementById("review-form");
+            const reviewList = document.getElementById("reviews-list");
+
+            reviewForm.addEventListener("submit", function (e) {
+                e.preventDefault();
+
+                const name = document.getElementById("review-name").value.trim();
+                const text = document.getElementById("review-text").value.trim();
+
+                if (name && text) {
+                    const reviewItem = document.createElement("div");
+                    reviewItem.classList.add("review");
+                    reviewItem.innerHTML = `<strong>${name}:</strong> <p>${text}</p>`;
+
+                    // Убираем сообщение "Отзывов пока нет" и добавляем новый отзыв
+                    if (reviewList.children[0].tagName === "P") {
+                        reviewList.innerHTML = "";
+                    }
+                    reviewList.appendChild(reviewItem);
+
+                    // Очищаем форму
+                    document.getElementById("review-name").value = "";
+                    document.getElementById("review-text").value = "";
+                }
+            });
+        });
+    </script>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

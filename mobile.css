@@ -1,0 +1,129 @@
+/* Общие стили */
+body {
+    font-size: 14px;
+    margin: 0;
+    padding: 0;
+    width: 100vw; /* Ширина экрана */
+    overflow-x: hidden; /* Убираем горизонтальный скролл */
+}
+
+/* Контейнер страницы */
+.container {
+    max-width: 100vw;
+    overflow-x: hidden;
+}
+
+/* Стили для товара */
+.tovar {
+    display: flex;
+    flex-direction: column; /* Изображение сверху, описание снизу */
+    align-items: center;
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box; /* Чтобы padding не увеличивал ширину */
+}
+
+/* Изображение товара */
+.tovar-image {
+    width: 100%;
+    text-align: center;
+}
+
+.tovar-image img {
+    width: 90%; /* Уменьшаем картинку */
+    max-width: 300px;
+    height: auto;
+}
+
+/* Описание товара */
+.product-details {
+    width: 100%;
+    text-align: center;
+    padding: 10px;
+}
+
+/* Описание - список */
+.product-details ul {
+    padding: 0;
+    font-size: 14px;
+    list-style: none;
+}
+
+/* Кнопка */
+.product-details button {
+    width: 90%;
+    padding: 12px;
+    font-size: 16px;
+}
+
+/* Описание товара */
+.product-description {
+    width: 90%;
+    padding: 10px;
+    text-align: justify;
+    margin: 10px auto;
+}
+
+/* Медиа-запросы для мобильных (экраны меньше 768px) */
+@media screen and (max-width: 768px) {
+    body {
+        font-size: 12px;
+        overflow-x: hidden;
+    }
+
+    .tovar {
+        width: 100%;
+        padding: 5px;
+    }
+
+    .tovar-image img {
+        width: 80%;
+        max-width: 250px;
+    }
+
+    .product-details button {
+        font-size: 14px;
+        padding: 10px;
+    }
+
+    .product-description {
+        width: 95%;
+        font-size: 12px;
+    }
+    .dynamic-section {
+        width: 90%;
+        height: 220px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #444;
+        color: white;
+        text-align: center;
+        font-size: 24px;
+        font-weight: bold;
+        border-radius: 15px;
+        padding: 20px;
+    }
+    .logo {
+        font-size: 15px;
+        font-weight: bold;
+    }
+    .search-bar {
+        flex-grow: 1;
+        margin: 0 15px;
+        padding: 3px;
+        border-radius: 3px;
+        border: none;
+    }
+    .cart {
+        cursor: pointer;
+        font-size: 11px;
+        margin-right: 8px; /* Добавляем отступ справа */
+    }
+    
+    .user {
+        cursor: pointer;
+        font-size: 11px;
+    }
+    
+}
